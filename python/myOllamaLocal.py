@@ -20,8 +20,16 @@ template = """
 
     Answer:
 """
+# notes about model files
+# 
+# llama3.2 has 3B parameters, is 2.0Gb in file size
+# llama3.2:1b has 1B parameters, is about 1.3Gb in file size 
+# other files wtih more parameters are 2x the size of 3.2:1b or larger, such as 
+# llama3.1 which is 4.7Gb in size 
+#
+# to use a model it must be installed locally with the ollama pull command  
 
-model = OllamaLLM(model="llama3")
+model = OllamaLLM(model="llama3.2:1b")
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
